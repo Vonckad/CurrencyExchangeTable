@@ -12,6 +12,9 @@
 		C3E8A71F2D39A96C00FA7F17 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A71E2D39A96C00FA7F17 /* Item.swift */; };
 		C3E8A7212D39A96C00FA7F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E8A7202D39A96C00FA7F17 /* Assets.xcassets */; };
 		C3E8A7242D39A96C00FA7F17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E8A7232D39A96C00FA7F17 /* Preview Assets.xcassets */; };
+		C3E8A72F2D39ABD700FA7F17 /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A72E2D39ABD700FA7F17 /* CurrencyDTO.swift */; };
+		C3E8A7312D39B1F100FA7F17 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A7302D39B1F100FA7F17 /* NetworkService.swift */; };
+		C3E8A7332D39B51100FA7F17 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A7322D39B51100FA7F17 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		C3E8A71E2D39A96C00FA7F17 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C3E8A7202D39A96C00FA7F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3E8A7232D39A96C00FA7F17 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3E8A72E2D39ABD700FA7F17 /* CurrencyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDTO.swift; sourceTree = "<group>"; };
+		C3E8A7302D39B1F100FA7F17 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C3E8A7322D39B51100FA7F17 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				C3E8A71A2D39A96C00FA7F17 /* CurrencyExchangeTableApp.swift */,
-				C3E8A71C2D39A96C00FA7F17 /* ContentView.swift */,
-				C3E8A71E2D39A96C00FA7F17 /* Item.swift */,
+				C3E8A72A2D39A98400FA7F17 /* Views */,
+				C3E8A72B2D39A99400FA7F17 /* Store */,
+				C3E8A72C2D39A99B00FA7F17 /* Service */,
+				C3E8A72D2D39AAC400FA7F17 /* Model */,
 				C3E8A7202D39A96C00FA7F17 /* Assets.xcassets */,
 				C3E8A7222D39A96C00FA7F17 /* Preview Content */,
 			);
@@ -68,6 +76,39 @@
 				C3E8A7232D39A96C00FA7F17 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3E8A72A2D39A98400FA7F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3E8A71C2D39A96C00FA7F17 /* ContentView.swift */,
+				C3E8A7322D39B51100FA7F17 /* ViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C3E8A72B2D39A99400FA7F17 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C3E8A71E2D39A96C00FA7F17 /* Item.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		C3E8A72C2D39A99B00FA7F17 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3E8A7302D39B1F100FA7F17 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3E8A72D2D39AAC400FA7F17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3E8A72E2D39ABD700FA7F17 /* CurrencyDTO.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E8A7312D39B1F100FA7F17 /* NetworkService.swift in Sources */,
 				C3E8A71D2D39A96C00FA7F17 /* ContentView.swift in Sources */,
 				C3E8A71F2D39A96C00FA7F17 /* Item.swift in Sources */,
 				C3E8A71B2D39A96C00FA7F17 /* CurrencyExchangeTableApp.swift in Sources */,
+				C3E8A7332D39B51100FA7F17 /* ViewModel.swift in Sources */,
+				C3E8A72F2D39ABD700FA7F17 /* CurrencyDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +328,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +358,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
