@@ -52,15 +52,22 @@ struct MainView: View {
                     }
                 }
             }
-        }
-        .searchable(text: $searchText) {
-            ForEach(searchResults, id: \.self) { item in
-                HStack {
-                    Text(item.currency)
-                    Spacer()
-                    Text("\(item.rate)")
-                }
+            .searchable(text: $searchText, prompt: "Поиск") {
+                if searchResults.isEmpty {
+                        Text("Результатов нет")
+                            .foregroundColor(.gray)
+                    } else {
+                        ForEach(searchResults, id: \.id) { item in
+                            HStack {
+                                Text(item.currency)
+                                Spacer()
+                                Text("\(item.rate)")
+                            }
+                        }
+                    }
             }
+            .searchPresentationToolbarBehavior(.avoidHidingContent)
+            .autocorrectionDisabled()
         }
         .task { await viewModel.loadData() }
         .alert(isPresented: .init(get: { viewModel.errorMessage != nil }, set: { _ in viewModel.errorMessage = nil })) {
@@ -76,7 +83,7 @@ struct MainView: View {
         if searchText.isEmpty {
             return viewModel.items
         } else {
-            return viewModel.items.filter { $0.currency.contains(searchText) }
+            return viewModel.items.filter { $0.currency.lowercased().contains(searchText.lowercased()) }
         }
     }
 }
