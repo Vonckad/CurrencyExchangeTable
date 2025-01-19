@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Item {
+final class CurrencyRate {
     @Attribute(.unique) var id: UUID
     var currency: String
     var rate: Float

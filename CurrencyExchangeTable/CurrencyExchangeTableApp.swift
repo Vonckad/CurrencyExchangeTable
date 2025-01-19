@@ -10,23 +10,20 @@ import SwiftData
 
 @main
 struct CurrencyExchangeTableApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
+    var sharedModelContainer: ModelContainer? = {
+        let schema = Schema( [ExchangeRateEntry.self] )
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
+        return try? ModelContainer(for: schema, configurations: [modelConfiguration])
     }()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if let modelContainer = sharedModelContainer {
+                MainView(modelContext: modelContainer.mainContext)
+                    .modelContainer(modelContainer)
+            } else {
+                ErrorView()
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
