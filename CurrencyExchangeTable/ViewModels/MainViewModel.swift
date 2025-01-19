@@ -14,14 +14,23 @@ class MainViewModel: ObservableObject {
     @Published var items: [CurrencyRate] = []
     @Published var errorMessage: String?
     @Published var date: Date?
+    @Published var isUpdating = false
+    private var timer: Timer?
 
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
         loadItems()
     }
+    
+    deinit {
+        timer?.invalidate()
+    }
 
     func loadData() async {
+        defer { isUpdating = false }
+        guard !isUpdating else { return }
         do {
+            isUpdating = true
             let fetchedItems = try await NetworkService.shared.getRate()
             let existingItems = try modelContext.fetch(FetchDescriptor<CurrencyRate>())
             try await deleteItems(existingItems)
@@ -32,8 +41,21 @@ class MainViewModel: ObservableObject {
             self.items = fetchedItems
             self.date = currentDate
             self.errorMessage = nil
+            
+            startPeriodicDataFetch()
         } catch {
             self.errorMessage = "Ошибка загрузки данных: \(error.localizedDescription)"
+        }
+    }
+    
+    func onRefreshButtonTapped() {
+        Task { await loadData() }
+    }
+    
+    private func startPeriodicDataFetch() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { _ in
+            Task { await self.loadData() }
         }
     }
     

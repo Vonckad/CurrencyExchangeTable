@@ -41,10 +41,14 @@ struct MainView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        Task { await viewModel.loadData() }
-                    } label: {
-                        Text("Обновить")
+                    if viewModel.isUpdating {
+                        ProgressView().tint(.blue)
+                    } else {
+                        Button {
+                            viewModel.onRefreshButtonTapped()
+                        } label: {
+                            Image(systemName: "arrow.clockwise")
+                        }
                     }
                 }
             }
