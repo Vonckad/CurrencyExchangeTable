@@ -38,7 +38,7 @@ class MainViewModel: ObservableObject {
             let currentDate = Date()
             try await saveDate(currentDate)
 
-            self.items = fetchedItems
+            self.items = fetchedItems.filter { $0.currency != "USD" }.sorted(by: { $0.currency < $1.currency })
             self.date = currentDate
             self.errorMessage = nil
             

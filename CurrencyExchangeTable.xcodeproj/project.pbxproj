@@ -10,6 +10,7 @@
 		C3C5A1DD2D3D2CC4007DE7FE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5A1DC2D3D2CC4007DE7FE /* ErrorView.swift */; };
 		C3C5A1E12D3D4953007DE7FE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5A1E02D3D4953007DE7FE /* DateExtension.swift */; };
 		C3C5A1E32D3D4E0A007DE7FE /* ExchangeRateEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5A1E22D3D4E0A007DE7FE /* ExchangeRateEntry.swift */; };
+		C3C5A1EB2D3D77DB007DE7FE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5A1EA2D3D77DB007DE7FE /* Helper.swift */; };
 		C3E8A71B2D39A96C00FA7F17 /* CurrencyExchangeTableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A71A2D39A96C00FA7F17 /* CurrencyExchangeTableApp.swift */; };
 		C3E8A71D2D39A96C00FA7F17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A71C2D39A96C00FA7F17 /* MainView.swift */; };
 		C3E8A71F2D39A96C00FA7F17 /* CurrencyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8A71E2D39A96C00FA7F17 /* CurrencyRate.swift */; };
@@ -25,6 +26,7 @@
 		C3C5A1DE2D3D2D2B007DE7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C3C5A1E02D3D4953007DE7FE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C3C5A1E22D3D4E0A007DE7FE /* ExchangeRateEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateEntry.swift; sourceTree = "<group>"; };
+		C3C5A1EA2D3D77DB007DE7FE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C3E8A7172D39A96C00FA7F17 /* CurrencyExchangeTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchangeTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E8A71A2D39A96C00FA7F17 /* CurrencyExchangeTableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeTableApp.swift; sourceTree = "<group>"; };
 		C3E8A71C2D39A96C00FA7F17 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		C3C5A1E92D3D77CD007DE7FE /* Hepler */ = {
+			isa = PBXGroup;
+			children = (
+				C3C5A1EA2D3D77DB007DE7FE /* Helper.swift */,
+			);
+			path = Hepler;
+			sourceTree = "<group>";
+		};
 		C3E8A70E2D39A96C00FA7F17 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 				C3E8A72C2D39A99B00FA7F17 /* Service */,
 				C3E8A72B2D39A99400FA7F17 /* Store Entity */,
 				C3E8A72D2D39AAC400FA7F17 /* DTO */,
+				C3C5A1E92D3D77CD007DE7FE /* Hepler */,
 				C3E8A7202D39A96C00FA7F17 /* Assets.xcassets */,
 				C3C5A1DE2D3D2D2B007DE7FE /* Info.plist */,
 				C3E8A7222D39A96C00FA7F17 /* Preview Content */,
@@ -215,6 +226,7 @@
 				C3E8A71F2D39A96C00FA7F17 /* CurrencyRate.swift in Sources */,
 				C3E8A71B2D39A96C00FA7F17 /* CurrencyExchangeTableApp.swift in Sources */,
 				C3C5A1DD2D3D2CC4007DE7FE /* ErrorView.swift in Sources */,
+				C3C5A1EB2D3D77DB007DE7FE /* Helper.swift in Sources */,
 				C3E8A7332D39B51100FA7F17 /* MainViewModel.swift in Sources */,
 				C3E8A72F2D39ABD700FA7F17 /* CurrencyDTO.swift in Sources */,
 			);
@@ -357,8 +369,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -388,8 +400,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

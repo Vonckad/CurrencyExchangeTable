@@ -19,15 +19,7 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.items, id: \.id) { item in
-                    HStack {
-                        Text(item.currency)
-                        Spacer()
-                        Text("\(item.rate)")
-                    }
-                }
-            }
+            List { list(viewModel.items) }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -54,17 +46,10 @@ struct MainView: View {
             }
             .searchable(text: $searchText, prompt: "Поиск") {
                 if searchResults.isEmpty {
-                        Text("Результатов нет")
-                            .foregroundColor(.gray)
-                    } else {
-                        ForEach(searchResults, id: \.id) { item in
-                            HStack {
-                                Text(item.currency)
-                                Spacer()
-                                Text("\(item.rate)")
-                            }
-                        }
-                    }
+                    Text("Результатов нет").foregroundColor(.gray)
+                } else {
+                    list(searchResults)
+                }
             }
             .searchPresentationToolbarBehavior(.avoidHidingContent)
             .autocorrectionDisabled()
@@ -76,6 +61,19 @@ struct MainView: View {
                 message: Text( viewModel.errorMessage ?? "Неизвестная ошибка"),
                 dismissButton: .default(Text("OK"))
             )
+        }
+    }
+    
+    private func list(_ items: [CurrencyRate]) -> some View {
+        ForEach(items, id: \.id) { item in
+            HStack {
+                Text(currencyFlags["USD"] ?? "")
+                Text("1 USD")
+                Spacer()
+                Text("\(currencyFlags[item.currency] ?? "")")
+                Text("\(String(format: "%.2f", item.rate))").frame(width: UIScreen.main.bounds.width / 5, alignment: .leading).padding(.horizontal, 8)
+                Text("\(item.currency)").frame(width: 40, alignment: .leading)
+            }
         }
     }
     
