@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @MainActor
-class ViewModel: ObservableObject {
+class MainViewModel: ObservableObject {
     private var modelContext: ModelContext
     @Published var items: [CurrencyRate] = []
     @Published var errorMessage: String?
@@ -45,7 +45,6 @@ class ViewModel: ObservableObject {
             if let parentItem = try? modelContext.fetch(FetchDescriptor<ExchangeRateEntry>()).first {
                 self.date = parentItem.date
             }
-
         } catch {
             self.errorMessage = "Ошибка извлечения данных: \(error.localizedDescription)"
         }

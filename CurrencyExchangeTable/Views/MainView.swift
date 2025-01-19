@@ -10,11 +10,11 @@ import SwiftData
 
 struct MainView: View {
     @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel: ViewModel
+    @StateObject private var viewModel: MainViewModel
     @State private var searchText = ""
     
     init(modelContext: ModelContext) {
-        _viewModel = StateObject(wrappedValue: ViewModel(modelContext: modelContext))
+        _viewModel = StateObject(wrappedValue: MainViewModel(modelContext: modelContext))
     }
     
     var body: some View {
@@ -42,9 +42,7 @@ struct MainView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        Task {
-                            await viewModel.loadData()
-                        }
+                        Task { await viewModel.loadData() }
                     } label: {
                         Text("Обновить")
                     }
