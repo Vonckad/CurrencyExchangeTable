@@ -64,7 +64,7 @@ class MainViewModel: ObservableObject {
             let fetchedItems = try modelContext.fetch(FetchDescriptor<CurrencyRate>())
             self.items = fetchedItems
 
-            if let parentItem = try? modelContext.fetch(FetchDescriptor<ExchangeRateEntry>()).first {
+            if let parentItem = try? modelContext.fetch(FetchDescriptor<ExchangeRateEntry>()).last {
                 self.date = parentItem.date
             }
         } catch {
